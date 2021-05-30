@@ -18,6 +18,7 @@ updatessl() {
       d=$(echo "$d_list" | cut -d , -f 1)
       $ACME_BIN --issue --ocsp -k ec-256 \
       -d $d_list \
+			--dns dns_ddnss \
       --nginx \
       --fullchain-file "$CERTS/$d.crt" \
       --key-file "$CERTS/$d.key" \
